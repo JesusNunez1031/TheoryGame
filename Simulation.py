@@ -1,10 +1,10 @@
 from tkinter import messagebox
 
-import PIL.Image, PIL.ImageTk
-import numpy as np
+#import PIL.Image, PIL.ImageTk
+#import numpy as np
 import tkinter
 from tkinter import *
-import cv2
+#import cv2
 
 
 def showDFA():
