@@ -66,7 +66,6 @@ def operation(stack, exp):  #Performs the operations of a PDA.  Recursive.
     if current_symbol == exp[-1]:
         exp.pop()
         if test(stack, exp):
-            print("HELLO")
             global accepted
             accepted = True
             return
@@ -82,7 +81,6 @@ def operation(stack, exp):  #Performs the operations of a PDA.  Recursive.
 
 def test(stack, exp):
     if len(stack) == 0 and len(exp) == 0:
-        print("Hey")
         #print("\n\n")
         #print("************************************")
         #print("*             ACCEPT               *")
@@ -92,6 +90,7 @@ def test(stack, exp):
         return False
 
 def main():
+    # Accepted is a variable used to determine whether to print accept or reject based on what test returns
     global accepted
     accepted = False
     global length
@@ -132,11 +131,11 @@ def main():
         var = []
         final = []
 
-        accepted = False
+        accepted = False # Set accepted as false at every iteration before calling operation
 
-        # TODO FIX ACCEPTED STAYING AS FALSE
+
         operation(stack, expression)
-        print(accepted)
+        # print(accepted) Debugging print statement
         if accepted:
             print_accept()
         else:
@@ -144,13 +143,14 @@ def main():
         if count > 5:
             break
 
-    accepted = False
 
-    operation(stack, exp)
-    if accepted:
-        print_accept()
-    else:
-        print_reject()
+    #accepted = False
+
+    #operation(stack, exp)
+    #if accepted:
+    #    print_accept()
+    #else:
+    #   print_reject()
 
 exp = ['a']
 #exp = ['b','*','a','+','a']
