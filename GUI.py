@@ -11,7 +11,7 @@ class GUI(tk.Tk):
         container = tk.Frame(self)
         container.pack(side="top", fill="both", expand=True)
 
-        # first paramter is the minimum size, weight is the priority,
+        # first parameter is the minimum size, weight is the priority,
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
 

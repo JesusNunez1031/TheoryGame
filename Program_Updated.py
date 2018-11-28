@@ -91,6 +91,33 @@ def test(stack, exp):
     else:
         return False
 
+def run_one_input(expression):
+    global accepted
+    accepted = False
+    global length
+    global rules
+    global var_test
+    print("Rules:")
+    # read_rules()
+    for line in rules_input:
+        print(line)
+    print(rules_input)
+    rules = divide_rules()
+    for rule in rules:
+        var_test.append(rule.variable)
+    print("variables =", var_test)
+    stack = []
+    stack.append(rules[0].variable)
+    var_test = []
+    operation(stack, expression)
+    print(accepted)
+    if accepted:
+        print_accept()
+        return True
+    else:
+        print_reject()
+        return False
+
 def main():
     global accepted
     accepted = False
@@ -101,14 +128,12 @@ def main():
     # read_rules()
     for line in rules_input:
         print(line)
-    global exp
-    print("Expression:")
-    # read_exp()
-    print(exp)
+    print(rules_input)
     rules = divide_rules()
     for rule in rules:
         var_test.append(rule.variable)
     print("variables =", var_test)
+
     stack = []
     stack.append(rules[0].variable)
 
@@ -129,8 +154,8 @@ def main():
         stack.append(rules[0].variable)
 
         var_test = []
-        var = []
-        final = []
+        #var = []
+        #final = []
 
         accepted = False
 
@@ -149,8 +174,6 @@ def main():
     operation(stack, exp)
     if accepted:
         print_accept()
-    else:
-        print_reject()
 
 exp = ['a']
 #exp = ['b','*','a','+','a']
@@ -159,4 +182,7 @@ rules_input = ["E -> E + T","E -> T","T -> T * F","T -> F","T -> F","F -> (E)","
 stack = []
 var = []
 final= []
-main()
+
+if __name__ == "__main__":
+    #main()
+    run_one_input(['GSGazd'])
